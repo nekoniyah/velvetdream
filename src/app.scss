@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+	--primary: #fbfbfb;
+	--secondary-red: #a41623;
+	--secondary-gold: #d4af37;
+	--black: #0f0f0f;
+
+	// New Colors based on those above
+	--secondary-gold-light: #e6c23a;
+	--secondary-gold-dark: #b8962e;
+	--secondary-red-light: #c91b2a;
+	--secondary-red-dark: #8b121c;
+	--secondary-gold-light: #e6c23a;
+	--secondary-gold-dark: #b8962e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Aclonica', sans-serif;
+	color: var(--black);
+}
+
+a {
+	text-decoration-line: none;
+	transition:
+		color 0.3s ease,
+		text-decoration-line 0.3s ease;
+}
+
+a:hover {
+	color: var(--secondary-gold);
+	text-decoration-line: underline;
+}
+
+p,
+a,
+span {
+	font-family: 'Dosis', sans-serif;
+	color: var(--black);
+}
+
+body,
+html {
+	background-color: var(--primary);
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+}

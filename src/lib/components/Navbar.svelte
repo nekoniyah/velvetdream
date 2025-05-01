@@ -38,6 +38,9 @@
 		<a href="/">Accueil</a>
 		<a href="/about">À propos</a>
 		<a href="/contact">Contact</a>
+		<a href="/discord">Discord</a>
+		<a href="/chat">Chat</a>
+		<a href="https://linktr.ee/nekoniyah">Linktree</a>
 	</div>
 </nav>
 

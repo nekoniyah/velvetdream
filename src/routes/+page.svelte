@@ -1,5 +1,53 @@
 <script lang="ts">
-	import { FadeIn, HoverCard, Button } from '$lib/components/index';
+	import { FadeIn, HoverCard, Button, Message } from '$lib/components/index';
+	import { io, Socket } from 'socket.io-client';
+	import { onMount } from 'svelte';
+	import { writable } from 'svelte/store';
+
+	let messages = writable<{ content: string; username: string; createdAt: string; id: string }[]>(
+		[]
+	);
+	let message = $state('');
+	let username = $state('');
+	let generateId = () => {
+		return Math.random().toString(36).substring(2, 15);
+	};
+
+	let socket = $state<Socket | null>(null);
+
+	onMount(() => {
+		let interval = setInterval(() => {
+			if (socket) {
+				clearInterval(interval);
+			}
+			username = localStorage.getItem('username') || generateId();
+			if (!localStorage.getItem('username')) {
+				localStorage.setItem('username', username);
+			}
+
+			socket = io('http://localhost:3001', {
+				auth: {
+					// svelte-ignore state_referenced_locally
+					username
+				},
+				reconnection: true,
+				reconnectionDelay: 1000,
+				reconnectionDelayMax: 5000
+			});
+
+			socket.on('update_messages', (x) => {
+				messages.set(x);
+				console.log('update_messages', x);
+			});
+
+			socket.emit('get_messages');
+
+			let submitBtn = document.querySelector('.submit-btn');
+			submitBtn?.addEventListener('click', () => {
+				socket!.emit('message', { content: message, username });
+			});
+		}, 1000);
+	});
 </script>
 
 <div class="container">
@@ -31,6 +79,25 @@
 			</div>
 		</FadeIn>
 	</div>
+
+	{#if socket}
+		<div class="chat-container">
+			<FadeIn delay={400}>
+				<h2>Chat</h2>
+
+				<div class="form">
+					<input type="text" placeholder="Message" bind:value={message} />
+					<button type="submit" class="submit-btn">Envoyer</button>
+				</div>
+
+				<div class="messages">
+					{#each $messages as message}
+						<Message {message} {socket} />
+					{/each}
+				</div>
+			</FadeIn>
+		</div>
+	{/if}
 
 	<div class="work-in-progress">
 		<FadeIn delay={400}>

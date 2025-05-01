@@ -19,23 +19,23 @@
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://velvetdream.com/" />
-	<meta property="og:title" content="VelvetDream - Your Dream Website" />
+	<meta property="og:url" content="https://www.velvetdream.com/" />
+	<meta property="og:title" content="VelvetDream - Ne manquez pas la diversité !" />
 	<meta
 		property="og:description"
-		content="Welcome to VelvetDream, your premier destination for web development and design services."
+		content="VelvetDream®, studio et maison d'édition de jeux de société et vidéoludiques."
 	/>
-	<meta property="og:image" content="https://velvetdream.com/og-image.jpg" />
+	<meta property="og:image" content="https://www.velvetdream.com/logo.png" />
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content="https://velvetdream.com/" />
-	<meta property="twitter:title" content="VelvetDream - Your Dream Website" />
+	<meta property="twitter:url" content="https://www.velvetdream.com/" />
+	<meta property="twitter:title" content="VelvetDream - Ne manquez pas la diversité !" />
 	<meta
 		property="twitter:description"
-		content="Welcome to VelvetDream, your premier destination for web development and design services."
+		content="VelvetDream®, studio et maison d'édition de jeux de société et vidéoludiques."
 	/>
-	<meta property="twitter:image" content="https://velvetdream.com/og-image.jpg" />
+	<meta property="twitter:image" content="https://www.velvetdream.com/logo.png" />
 
 	<!-- Additional Meta Tags -->
 	<meta name="theme-color" content="#ffffff" />
@@ -46,7 +46,6 @@
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="/favicon.png" />
-	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </svelte:head>
 
 <Navbar />
